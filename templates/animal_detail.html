@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ animal.nom }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <img src="logo.jpeg" alt="logo_image" class="logo"> 
+        <h1>Pattopia</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/form">Mise en Adoption</a></li>
+                <li><a href="/liste">Liste d'Animaux</a></li>
+            </ul>
+        </nav>
+        <form id="search-form" action="/search" method="get">
+            <input type="text" id="search-query" name="query" placeholder="Rechercher animaux...">
+            <button type="submit">Recherche</button>
+        </form>
+    </header>
+    <main>
+        <div class="animal-details">
+            <h1>{{ animal.nom }}</h1>
+            <p>Espèce : {{ animal.espece }}</p>
+            <p>Race : {{ animal.race }}</p>
+            <p>Âge : {{ animal.age }}</p>
+            <p>Description : {{ animal.description }}</p>
+            <p>Courriel : <a href="mailto:{{ animal.courriel }}">{{ animal.courriel }}</a></p>
+            <p>Localisation : {{ animal.adresse }}, {{ animal.ville }}, {{ animal.cp }}</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy;  2024 Centre Pattopia . Tous Les Droits Reserves.</p>
+    </footer>
+</body>
+</html>

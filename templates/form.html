@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mise en Adoption</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <img src="logo.jpeg" alt="logo_image" class="logo"> 
+        <h1>Pattopia</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/form">Mise en Adoption</a></li>
+                <li><a href="/liste">Liste d'Animaux</a></li>
+            </ul>
+        </nav>
+        <form id="search-form" action="/search" method="get">
+            <input type="text" id="search-query" name="query" placeholder="Rechercher animaux...">
+            <button type="submit">Recherche</button>
+        </form>
+    </header>
+    <center>
+        <h2>Mise en Adoption</h2>
+            <p class="description">
+                Ce formulaire permet de soumettre un animal pour mise en adoption. Veuillez remplir les informations demandées de manière complète et précise. Assurez-vous que tous les champs sont correctement remplis avant de soumettre votre demande. Nous vous remercions pour votre contribution à l'adoption responsable des animaux.
+            </p>
+    </center>
+    <main>
+        <form id="add-animal-form">
+            <h2>Informations sur l'animal</h2>
+
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" placeholder="Nom de l'animal">
+            <span id="nom-error" class="error"></span>
+
+            <label for="espece">Espèce :</label>
+            <input type="text" id="espece" name="espece" placeholder="Espèce de l'animal">
+            <span id="espece-error" class="error"></span>
+
+            <label for="race">Race :</label>
+            <input type="text" id="race" name="race" placeholder="Race de l'animal">
+            <span id="race-error" class="error"></span>
+
+            <label for="age">Âge :</label>
+            <input type="number" id="age" name="age" placeholder="Âge de l'animal">
+            <span id="age-error" class="error"></span>
+
+            <label for="description">Description :</label>
+            <textarea id="description" name="description" placeholder="Décrire l'animal"></textarea>
+            <span id="description-error" class="error"></span>
+
+            <h2>Coordonnées du propriétaire</h2>
+
+            <label for="courriel">Courriel :</label>
+            <input type="email" id="courriel" name="courriel" placeholder="Votre adresse courriel">
+            <span id="courriel-error" class="error"></span>
+
+            <label for="adresse">Adresse :</label>
+            <input type="text" id="adresse" name="adresse" placeholder="Votre adresse">
+            <span id="adresse-error" class="error"></span>
+
+            <label for="ville">Ville :</label>
+            <input type="text" id="ville" name="ville" placeholder="Ville">
+            <span id="ville-error" class="error"></span>
+
+            <label for="cp">Code Postal :</label>
+            <input type="text" id="cp" name="cp" placeholder="Code postal">
+            <span id="cp-error" class="error"></span>
+
+            <div id="form-messages" class="form-messages"></div>
+
+            <center><button type="submit">Ajouter</button></center>
+        </form>
+    </main>
+    <footer>
+        <p>&copy;  2024 Centre Pattopia . Tous Les Droits Reserves.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

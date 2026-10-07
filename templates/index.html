@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adoption d'Animaux</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <img src="logo.jpeg" alt="logo_image" class="logo"> 
+        <h1>Pattopia</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/form">Mise en Adoption</a></li>
+                <li><a href="/liste">Liste d'Animaux</a></li>
+            </ul>
+        </nav>
+        <form id="search-form" action="/search" method="get">
+            <input type="text" id="search-query" name="query" placeholder="Rechercher animaux...">
+            <button type="submit">Recherche</button>
+        </form>
+    </header>
+    <main>
+        <center>
+            <p class="description">
+                Pattopia est une agence d'adoption d'animaux fondée par deux amies passionnées, Bouchra et Suzane. Leur mission est de trouver des foyers aimants pour les animaux abandonnés ou en attente d'une nouvelle famille. Grâce à leur engagement et leur amour pour les animaux, Pattopia offre une expérience chaleureuse et responsable d'adoption, tout en sensibilisant le public à la protection animale et à l'importance du bien-être des animaux. L'agence met un point d'honneur à accompagner chaque adoptant dans son parcours, garantissant ainsi une transition harmonieuse pour les animaux et leurs nouvelles familles.
+            </p>
+        </center>
+        <div id="random-animals"></div>
+    </main>
+    <footer>
+        <p>&copy;  2024 Centre Pattopia . Tous Les Droits Reserves.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

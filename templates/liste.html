@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste d'Animaux</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <img src="logo.jpeg" alt="logo_image" class="logo"> 
+        <h1>Pattopia</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/form">Mise en Adoption</a></li>
+                <li><a href="/liste">Liste d'Animaux</a></li>
+            </ul>
+        </nav>
+        <form id="search-form" action="/search" method="get">
+            <input type="text" id="search-query" name="query" placeholder="Rechercher animaux...">
+            <button type="submit">Recherche</button>
+        </form>
+    </header>
+    <main>
+        <center>
+            <p class="quote">Trouves ton compagnon a quatre pattes parfait aujourd'hui !</p>
+        </center>
+        <div id="search-results">
+            {% if animals %}
+                {% for animal in animals %}
+                    <div class="animal-card">
+                        <h2>{{ animal.nom }}</h2>
+                        <p>{{ animal.description }}</p>
+                        <a href="/animal/{{ animal.id }}">Détails</a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="no-results-message">
+                    Aucun animal trouvé correspondant à vos critères de recherche.
+                </div> 
+            {% endif %}
+        </div>
+    </main>
+    <footer>
+        <p>&copy;  2024 Centre Pattopia . Tous Les Droits Reserves.</p>
+    </footer>
+</body>
+</html>
